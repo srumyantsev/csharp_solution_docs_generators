@@ -1,3 +1,6 @@
+# WordsUsagesDocsGen
+Type name endings parser and report generator
+
 # Useful links
 * https://threat.tevora.com/visualizing-dotnet-class-relationships-neo4j/
 * https://stackoverflow.com/a/49886334
