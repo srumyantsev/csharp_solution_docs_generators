@@ -1,6 +1,8 @@
+# WordsUsagesDocsGen
+Type name endings parser and report generator
+
 # Used
 * Roslyn
-
 
 # Useful links
 * https://threat.tevora.com/visualizing-dotnet-class-relationships-neo4j/
