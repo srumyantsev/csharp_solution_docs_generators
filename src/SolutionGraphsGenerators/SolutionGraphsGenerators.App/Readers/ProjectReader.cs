@@ -23,7 +23,7 @@ namespace SolutionGraphsGenerators.App.Readers {
 				.Elements(GetXName("ItemGroup"))
 				.Elements(GetXName("ProjectReference"))
 				.Select(i => Path.Combine(Path.GetDirectoryName(projectPath),
-					Path.GetDirectoryName(i.Attribute("Include").Value))).ToList();
+					Path.GetDirectoryName(i.Attribute("Include").Value), Path.GetFileName(i.Attribute("Include").Value))).ToList();
 		}
 	}
 }

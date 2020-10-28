@@ -38,7 +38,6 @@ namespace SolutionGraphsGenerators.App {
 			File.WriteAllText("result.gv", graphAsString.ToString());
 
 			Console.WriteLine("Done");
-			Console.ReadKey();
 		}
 	}
 }

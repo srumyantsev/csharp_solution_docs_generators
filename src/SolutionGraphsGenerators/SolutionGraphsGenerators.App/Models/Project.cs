@@ -1,23 +1,20 @@
-﻿using System;
-using System.IO;
-
-namespace SolutionGraphsGenerators.App.Models {
+﻿namespace SolutionGraphsGenerators.App.Models {
 	public sealed class Project {
-		public Project(string nameOrPath)
-		{
-			Id = GetId(nameOrPath);
-			Name = GetName(nameOrPath);
-		}
+        public Project(string id, string name, string path) {
+            Id = id;
+            Name = name;
+            Path = path;
+        }
 
-		public string Id { get; }
+        public string Id { get; }
 		public string Name { get; }
+		public string Path { get; }
 
-		public override string ToString()
-		{
-			return Name;
-		}
+        public override string ToString() {
+            return $"{nameof(Id)}: {Id}, {nameof(Name)}: {Name}";
+        }
 
-		private bool Equals(Project other)
+        private bool Equals(Project other)
 		{
 			return string.Equals(Id, other.Id);
 		}
@@ -44,24 +41,5 @@ namespace SolutionGraphsGenerators.App.Models {
 		{
 			return !Equals(left, right);
 		}
-
-		public static string GetId(string assemblyName)
-		{
-			return GetName(assemblyName)
-				.Replace(".", string.Empty);
-		}
-
-		public static string GetName(string assemblyName) {
-			return Path.GetFileName(assemblyName)
-				.Replace(".csproj", String.Empty)
-				.Replace(".dll", String.Empty);
-		}
 	}
-
-	//public enum ProjectType
-	//{
-	//	Library,
-	//	Application,
-	//	WebApplication
-	//}
 }

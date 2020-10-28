@@ -12,7 +12,7 @@ namespace SolutionGraphsGenerators.App.Readers {
 
 			foreach (string projectFilePath in Directory.EnumerateFiles(Path.GetDirectoryName(solutionFilePath), "*.csproj", SearchOption.AllDirectories))
 			{
-				projectsWithReferences.Add(new Project(projectFilePath), ProjectReader.GetProjectReferences(projectFilePath));
+				projectsWithReferences.Add(new Project(GetProjectId(projectFilePath), GetProjectName(projectFilePath), projectFilePath), ProjectReader.GetProjectReferences(projectFilePath));
 			}
 
 			var graph = new DirectedGraph<Project, ProjectDependency>();
@@ -24,11 +24,22 @@ namespace SolutionGraphsGenerators.App.Readers {
 
 				foreach (string projectReference in projectsWithReference.Value)
 				{
-					graph.Add(new ProjectDependency(projectsWithReference.Key, projects[Project.GetId(projectReference)]));
+					graph.Add(new ProjectDependency(projectsWithReference.Key, projects[GetProjectId(projectReference)]));
 				}
 			}
 
 			return graph;
 		}
+
+        private static string GetProjectId(string projectFullPath) {
+            return GetProjectName(projectFullPath)
+                .Replace(".", string.Empty).ToLower();
+        }
+
+        private static string GetProjectName(string projectFullPath) {
+            return Path.GetFileName(projectFullPath)
+                .Replace(".csproj", string.Empty)
+                .Replace(".dll", string.Empty);
+        }
 	}
 }
