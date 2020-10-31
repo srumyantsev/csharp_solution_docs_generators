@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.539
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolutionGraphsGenerators.App", "SolutionGraphsGenerators.App\SolutionGraphsGenerators.App.csproj", "{5152E4E7-989A-46E8-8898-0AACAA065D6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolutionGraphsGenerators.App", "SolutionGraphsGenerators.App\SolutionGraphsGenerators.App.csproj", "{5152E4E7-989A-46E8-8898-0AACAA065D6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssembliesGraphsGenerators.App", "AssembliesGraphsGenerators.App\AssembliesGraphsGenerators.App.csproj", "{DF96CC96-E117-4C08-90D5-9EB6934DD365}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{5152E4E7-989A-46E8-8898-0AACAA065D6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5152E4E7-989A-46E8-8898-0AACAA065D6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5152E4E7-989A-46E8-8898-0AACAA065D6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF96CC96-E117-4C08-90D5-9EB6934DD365}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF96CC96-E117-4C08-90D5-9EB6934DD365}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF96CC96-E117-4C08-90D5-9EB6934DD365}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF96CC96-E117-4C08-90D5-9EB6934DD365}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
