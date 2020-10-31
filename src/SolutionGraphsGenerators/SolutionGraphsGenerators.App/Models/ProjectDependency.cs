@@ -1,8 +1,8 @@
 ﻿using SD.Tools.Algorithmia.Graphs;
 
 namespace SolutionGraphsGenerators.App.Models {
-	public class ProjectDependency : DirectedEdge<Project> {
-		public ProjectDependency(Project startVertex, Project endVertex) : base(startVertex, endVertex)
+    internal class ProjectDependency : DirectedEdge<Project> {
+        internal ProjectDependency(Project startVertex, Project endVertex) : base(startVertex, endVertex)
 		{
 		}
 	}

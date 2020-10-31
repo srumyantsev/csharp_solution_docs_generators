@@ -1,6 +1,6 @@
 ﻿namespace SolutionGraphsGenerators.App.Models {
-	public sealed class Project {
-        public Project(string id, string name, string path) {
+    internal sealed class Project {
+        internal Project(string id, string name, string path) {
             Id = id;
             Name = name;
             Path = path;

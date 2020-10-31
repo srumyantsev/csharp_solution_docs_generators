@@ -6,7 +6,7 @@ using SD.Tools.Algorithmia.Graphs;
 
 namespace SolutionGraphsGenerators.App.Readers {
 	public static class SolutionReader {
-		public static DirectedGraph<Project, ProjectDependency> Parse(string solutionFilePath)
+		internal static DirectedGraph<Project, ProjectDependency> Parse(string solutionFilePath)
 		{
 			Dictionary<Project, IEnumerable<string>> projectsWithReferences = new Dictionary<Project, IEnumerable<string>>();
 

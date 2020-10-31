@@ -5,8 +5,8 @@ using System.Linq;
 using System.Xml.Linq;
 
 namespace SolutionGraphsGenerators.App.Readers {
-	public static class ProjectReader {
-		public static IEnumerable<string> GetProjectReferences(string projectPath) {
+    internal static class ProjectReader {
+		internal static IEnumerable<string> GetProjectReferences(string projectPath) {
 			var document = XDocument.Load(projectPath);
 			if (document.Root == null) { 
 				throw new Exception($"Error loading {projectPath}");

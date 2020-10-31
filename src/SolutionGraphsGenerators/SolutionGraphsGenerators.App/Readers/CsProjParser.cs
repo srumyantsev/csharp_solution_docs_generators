@@ -10,7 +10,7 @@ namespace Codartis.NsDepCop.ConsoleHost
     /// <summary>
     /// Parses a C# project file and extracts source file and referenced assembly info.
     /// </summary>
-    public class CsProjParser
+    internal class CsProjParser
     {
         private static readonly List<string> ReferenceDirectories = new List<string>
         {
