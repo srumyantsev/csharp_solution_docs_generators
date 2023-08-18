@@ -1,5 +1,10 @@
+# Abstract
+* SolutionGraphsGenerators.App - reads source code (.csproj) files and renders graphs of dependencies
+* AssembliesGraphsGenerators.App - reads compiled assemblies (.dll, .exe) files and renders graphs of dependencies
+
 # Used
 * Graphviz
+* DGML
 * Directed graph. From library "SD.Tools.Algorithmia.Graphs"
 
 
