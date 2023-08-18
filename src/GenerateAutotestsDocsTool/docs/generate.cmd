@@ -1,0 +1,1 @@
+CALL ..\GenerateAutotestsDocsTool\bin\Debug\GenerateAutotestsDocsTool.exe D:\Projects\appulate\Tools\Appulate.Autotests\Appulate.Autotests\Tests .\Integrations.md Categories.Clients.External.
