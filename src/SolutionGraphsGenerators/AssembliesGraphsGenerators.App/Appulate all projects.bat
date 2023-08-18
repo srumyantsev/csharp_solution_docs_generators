@@ -1,0 +1,4 @@
+CD .\bin\Debug\netcoreapp3.1\
+CALL AssembliesGraphsGenerators.App.exe AssembliesFolderPath="D:\Projects\appulate\Sources\Appulate.WebUI\bin" AssembliesFileNameFilters:0="Appulate*.dll" ReferencedAssemblyNameFilters:0="Appulate*" OutputFileName="2023-01-09 WebUI All projects"
+CALL AssembliesGraphsGenerators.App.exe AssembliesFolderPath="D:\Projects\appulate\Sources\Appulate.WebUI.Admin\bin" AssembliesFileNameFilters:0="Appulate*.dll" ReferencedAssemblyNameFilters:0="Appulate*" OutputFileName="2023-01-09 WebUI.Admin All projects"
+CALL AssembliesGraphsGenerators.App.exe AssembliesFolderPath="D:\Projects\appulate\Sources\Appulate.Service\bin\Debug" AssembliesFileNameFilters:0="Appulate*.dll" AssembliesFileNameFilters:1="Appulate*.exe" ReferencedAssemblyNameFilters:0="Appulate*" OutputFileName="2023-01-09 Service All projects"

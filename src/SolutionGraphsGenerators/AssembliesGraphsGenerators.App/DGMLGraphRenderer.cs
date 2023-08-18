@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AssembliesGraphsGenerators.App {
     internal static class DGMLGraphRenderer {
-        internal static void Render(IEnumerable<AssemblyData> assemblies, string[] assembliesIdsToExclude) {
+        internal static void Render(IEnumerable<AssemblyData> assemblies, string[] assembliesIdsToExclude, string outputFileName) {
             var nodes = new StringBuilder();
             var edges = new StringBuilder();
             foreach (AssemblyData assembly in assemblies) {
@@ -13,7 +13,7 @@ namespace AssembliesGraphsGenerators.App {
                     continue;
                 }
 
-                nodes.AppendLine($@"<Node Id=""{assembly.Id}"" Label=""{assembly.Name};{assembly.TargetFramework}"" />");
+                nodes.AppendLine($@"<Node Id=""{assembly.Id}"" Label=""{assembly.Name} ({assembly.TargetFrameworkVersion})"" />");
                 foreach (string referencedAssemblyId in assembly.ReferencedAssemblyIds) {
                     if (assembliesIdsToExclude.Contains(referencedAssemblyId)) {
                         continue;
@@ -43,7 +43,7 @@ namespace AssembliesGraphsGenerators.App {
                       </Styles>
                 </DirectedGraph>");
 
-            File.WriteAllText("result.dgml", graph.ToString());
+            File.WriteAllText($"{outputFileName}.dgml", graph.ToString());
         }
     }
 }

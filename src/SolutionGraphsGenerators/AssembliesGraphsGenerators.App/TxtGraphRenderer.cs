@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace AssembliesGraphsGenerators.App {
-    internal static class DotLangGraphRenderer {
+    internal static class TxtGraphRenderer {
         internal static void Render(IEnumerable<AssemblyData> assemblies, string[] assembliesIdsToExclude, string outputFileName) {
             var graph = new StringBuilder();
             graph.AppendLine(@"digraph AssembliesDependencies {
@@ -17,16 +17,8 @@ namespace AssembliesGraphsGenerators.App {
             var nodes = new StringBuilder();
             var edges = new StringBuilder();
             foreach (AssemblyData assembly in assemblies) {
-                if (assembliesIdsToExclude.Contains(assembly.Id)) {
-                    continue;
-                }
-
                 nodes.AppendLine($"{assembly.Id}[label=\"{assembly.Name} ({assembly.TargetFrameworkVersion})\"];");
                 foreach (string referencedAssemblyId in assembly.ReferencedAssemblyIds) {
-                    if (assembliesIdsToExclude.Contains(referencedAssemblyId)) {
-                        continue;
-                    }
-
                     edges.AppendLine($"{assembly.Id} -> {referencedAssemblyId};");
                 }
             }
@@ -35,7 +27,7 @@ namespace AssembliesGraphsGenerators.App {
             graph.Append(edges);
             graph.AppendLine("}");
 
-            File.WriteAllText($"{outputFileName}.gv", graph.ToString());
+            File.WriteAllText($"{outputFileName}.txt", graph.ToString());
         }
     }
 }
