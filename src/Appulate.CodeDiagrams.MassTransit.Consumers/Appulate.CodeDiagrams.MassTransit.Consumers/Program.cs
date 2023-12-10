@@ -1,16 +1,36 @@
-﻿// See https://aka.ms/new-console-template for more information
-using Appulate.CodeDiagrams.MassTransit.Consumers;
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.FindSymbols;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Appulate.CodeDiagrams.MassTransit.Consumers.Export;
+using Appulate.CodeDiagrams.MassTransit.Consumers.Find;
+using Appulate.CodeDiagrams.MassTransit.Consumers.Models;
 
-//setup
-Solution solution = await RoslynSetup.SetupAsync("D:\\Projects\\appulate\\Sources\\Appulate.sln");
+namespace Appulate.CodeDiagrams.MassTransit.Consumers;
 
-//parse
-IEnumerable<INamedTypeSymbol> consumers = await ConsumersFinder.FindAsync(solution);
-Dictionary<INamedTypeSymbol, Dictionary<INamedTypeSymbol, IEnumerable<SymbolCallerInfo>>> consumersPayloadsPayloadsContructorsCallers = await PayloadsFinder.FindAsync(consumers, solution);
+public static class Program
+{
+    public static async Task Main(params string[] args)
+    {
+        var operation = new ConsoleOperation(args);
 
-//print
-await ResultTextWriter.WriteAsync(consumersPayloadsPayloadsContructorsCallers, "MassTransit events.txt");
-await ResultPlantUmlComponentsDiagramWriter.WriteAsync(consumersPayloadsPayloadsContructorsCallers, "MassTransit events");
-//await ResultHtmlWriter.WriteAsync(consumersPayloadsPayloadsContructorsCallers, "result.html", "template.html");
+        switch (operation.OperationType)
+        {
+            case ConsoleOperationType.Find:
+                FindOperation findOperation = operation.GetOperation<FindOperation>();
+                //find
+                IEnumerable<Consumer> consumersToSave = await Finder.FindAsync(findOperation.SolutionPath);
+                //save
+                await SaverLoader.SaveAsync(consumersToSave, findOperation.SavePath);
+                break;
+            case ConsoleOperationType.Export:
+                ExportOperation exportOperation = operation.GetOperation<ExportOperation>();
+                //load
+                IEnumerable<Consumer> consumersToExport = await SaverLoader.LoadAsync(exportOperation.LoadPath);
+                //export
+                await TextExporter.ExportAsync(consumersToExport, $"{exportOperation.ExportPath}.txt");
+                await PlantUmlComponentsDiagramExporter.ExportAsync(consumersToExport, $"{exportOperation.ExportPath}.plantuml");
+                //await ResultHtmlExporter.ExportAsync(consumers, "result.html", "template.html");
+                break;
+        }
+    }
+}

@@ -2,11 +2,11 @@
 //using Microsoft.CodeAnalysis.FindSymbols;
 //using System.Text;
 
-//namespace Appulate.CodeDiagrams.MassTransit.Consumers;
+//namespace Appulate.CodeDiagrams.MassTransit.Consumers.Export;
 
-//internal static class ResultHtmlWriter
+//internal static class HtmlExporter
 //{
-//    internal static async Task WriteAsync(Dictionary<INamedTypeSymbol, Dictionary<INamedTypeSymbol, IEnumerable<SymbolCallerInfo>>> consumersPayloadsPayloadsContructorsCallers, string outputFilePath, string templateFilePath)
+//    internal static async Task ExportAsync(Dictionary<INamedTypeSymbol, Dictionary<INamedTypeSymbol, IEnumerable<SymbolCallerInfo>>> consumersPayloadsPayloadsContructorsCallers, string outputFilePath, string templateFilePath)
 //    {
 //        var packages = new Dictionary<string, IList<string>>();
 //        var relations = new StringBuilder();

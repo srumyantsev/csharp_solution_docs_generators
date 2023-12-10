@@ -1,8 +1,9 @@
-﻿using Microsoft.Build.Locator;
+﻿using System.Threading.Tasks;
+using Microsoft.Build.Locator;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.MSBuild;
 
-namespace Appulate.CodeDiagrams.MassTransit.Consumers;
+namespace Appulate.CodeDiagrams.MassTransit.Consumers.Find;
 
 /// <summary>
 /// https://docs.microsoft.com/en-us/visualstudio/msbuild/updating-an-existing-application?view=vs-2022#use-microsoftbuildlocator    /// 
